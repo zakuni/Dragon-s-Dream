@@ -1,4 +1,6 @@
-require "dragons_dream/version"
+require 'net/http'
+require 'json'
+require 'dragons_dream/version'
 
 module DragonsDream
   class TransferInfo
@@ -11,17 +13,17 @@ module DragonsDream
     end
 
     def get_stations(name)
-      reqUrl = "#{baseUrl}?method=getStations&name=#{name}"
+      reqUrl = "#{@baseUrl}?method=getStations&name=#{name}"
       status = request(reqUrl)
     end
 
     def get_line(line)
-      reqUrl = "#{baseUrl}?method=getStations$line=#{line}"
+      reqUrl = "#{@baseUrl}?method=getStations$line=#{line}"
       status = request(reqUrl)
     end
 
     def get_stations_with_line(name, line)
-      reqUrl = "#{baseUrl}?method=getStations&line=#{line}&name=#{name}"
+      reqUrl = "#{@baseUrl}?method=getStations&line=#{line}&name=#{name}"
       status = request(reqUrl)
     end
 
