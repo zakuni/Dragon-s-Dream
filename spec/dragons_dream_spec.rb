@@ -29,8 +29,8 @@ describe DragonsDream::RailwayInfo do
   end
   
   describe "getstations" do
-    it "has method getStations" do
-      @railway.must_respond_to("getStations")
+    it "has method get_stations" do
+      @railway.must_respond_to("get_stations")
     end
   end
 end
