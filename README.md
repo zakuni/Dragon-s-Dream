@@ -1,6 +1,6 @@
 # DragonsDream
 
-TODO: Write a gem description
+RailwayInfo via [HeartRails Express](http://express.heartrails.com/)
 
 ## Installation
 
