@@ -11,7 +11,13 @@ module DragonsDream
     def initialize
       @baseUrl  = "http://express.heartrails.com/api/json"
     end
+    
+    def stations_list(line)
 
+    end
+
+    private
+    
     def get_stations(name)
       reqUrl = "#{@baseUrl}?method=getStations&name=#{name}"
       status = request(reqUrl)
