@@ -1,4 +1,4 @@
-# DragonsDream
+# Dragon's Dream
 
 TODO: Write a gem description
 
