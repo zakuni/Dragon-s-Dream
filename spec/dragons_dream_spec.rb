@@ -22,10 +22,31 @@ end
 describe DragonsDream::RailwayInfo do
   before do
     @railway = DragonsDream::RailwayInfo.new
+    @yamanote_line = "JR山手線"
   end
 
   it "can be created" do
     DragonsDream::RailwayInfo.new.must_be_instance_of DragonsDream::RailwayInfo
+  end
+
+  describe "stations_list" do
+    it "responds" do
+      @railway.must_respond_to("stations_list")
+    end
+
+    it "raise ArgumentError with Argument nil" do
+      lambda{@railway.stations_list(nil)}.must_raise(ArgumentError)
+    end
+
+    describe "with JR山手線" do
+      it "returns Array" do
+        @railway.stations_list(@yamanote_line).must_be_kind_of(Array)
+      end
+
+      it "has 29 stations" do
+        @railway.stations_list(@yamanote_line).length.must_equal(29)
+      end
+    end
   end
   
   describe "get_stations" do
@@ -44,10 +65,14 @@ describe DragonsDream::RailwayInfo do
     it "is private method" do
       @railway.wont_respond_to("get_line")
     end
-    
+
     describe "with send" do
+      it "raise NoMethodError with Argument nil" do
+        lambda{@railway.send(:get_line, nil)}.must_raise(ArgumentError)
+      end
+
       it "returns Hash" do
-        @railway.send(:get_line, nil).must_be_kind_of(Hash)
+        @railway.send(:get_line, @yamanote_line).must_be_kind_of(Hash)
       end
     end
   end
