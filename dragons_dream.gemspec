@@ -17,6 +17,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
+  gem.add_dependency "nokogiri"
   gem.add_development_dependency "guard-minitest"
   gem.add_development_dependency "rb-fsevent"
   gem.add_development_dependency "growl"

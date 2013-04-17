@@ -14,8 +14,22 @@ describe DragonsDream do
 end
 
 describe DragonsDream::TransferInfo do
+  before do
+    @transfer = DragonsDream::TransferInfo.new
+  end
+
   it "can be created" do
     DragonsDream::TransferInfo.new.must_be_instance_of DragonsDream::TransferInfo
+  end
+
+  describe "guide" do
+    it "responds" do 
+      @transfer.must_respond_to("guide")
+    end
+
+    it "returns" do
+      puts @transfer.guide("江田（神奈川）", "大阪")
+    end
   end
 end
 
@@ -58,6 +72,10 @@ describe DragonsDream::RailwayInfo do
       it "returns Hash" do
         @railway.send(:get_stations, nil).must_be_kind_of(Hash)
       end
+      
+      it "raise ArgumentError with Argument nil" do
+        lambda{@railway.send(:get_stations, nil)}.must_raise(ArgumentError)
+      end
     end
   end
 
@@ -67,7 +85,7 @@ describe DragonsDream::RailwayInfo do
     end
 
     describe "with send" do
-      it "raise NoMethodError with Argument nil" do
+      it "raise ArgumentError with Argument nil" do
         lambda{@railway.send(:get_line, nil)}.must_raise(ArgumentError)
       end
 
