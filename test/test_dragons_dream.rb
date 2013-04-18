@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-require 'minitest/autorun'
-require 'minitest/reporters'
-require 'dragons_dream'
-
-MiniTest::Reporters.use! [MiniTest::Reporters::SpecReporter.new]
+require 'test_helper'
 
 describe DragonsDream do
   describe "guide" do
