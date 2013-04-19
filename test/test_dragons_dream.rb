@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 require 'test_helper'
 
+class TestDragonsDream < MiniTest::Unit::TestCase
+  include DragonsDream
+end
+
 describe DragonsDream do
   describe "guide" do
     it "shows the way" do
