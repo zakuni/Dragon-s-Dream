@@ -32,6 +32,15 @@ class TestRailwayInfo < MiniTest::Unit::TestCase
   def test_initialize
     assert_instance_of RailwayInfo, RailwayInfo.new
   end
+
+  def test_stations_list
+    assert_respond_to @railway, :stations_list
+    assert_raises(ArgumentError) do
+      @railway.stations_list(nil)
+    end
+    assert_kind_of Array, @railway.stations_list(@yamanote_line)
+    assert_equal 29, @railway.stations_list(@yamanote_line).length
+  end
 end
 
 describe DragonsDream::RailwayInfo do
@@ -40,26 +49,6 @@ describe DragonsDream::RailwayInfo do
     @yamanote_line = "JR山手線"
   end
 
-  describe "stations_list" do
-    it "responds" do
-      @railway.must_respond_to("stations_list")
-    end
-
-    it "raise ArgumentError with Argument nil" do
-      lambda{@railway.stations_list(nil)}.must_raise(ArgumentError)
-    end
-
-    describe "with JR山手線" do
-      it "returns Array" do
-        @railway.stations_list(@yamanote_line).must_be_kind_of(Array)
-      end
-
-      it "has 29 stations" do
-        @railway.stations_list(@yamanote_line).length.must_equal(29)
-      end
-    end
-  end
-  
   describe "get_stations" do
     it "is private method" do
       @railway.wont_respond_to("get_stations")
