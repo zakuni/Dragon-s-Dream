@@ -3,10 +3,6 @@ require 'test_helper'
 
 class TestDragonsDream < MiniTest::Unit::TestCase
   include DragonsDream
-
-  def test_guide
-    assert_equal true
-  end
 end
 
 class TestTransferInfo < MiniTest::Unit::TestCase
@@ -15,25 +11,13 @@ class TestTransferInfo < MiniTest::Unit::TestCase
   def setup
     @transfer = TransferInfo.new
   end
-end
 
-describe DragonsDream::TransferInfo do
-  before do
-    @transfer = DragonsDream::TransferInfo.new
+  def test_init
+    assert_instance_of TransferInfo, TransferInfo.new
   end
 
-  it "can be created" do
-    DragonsDream::TransferInfo.new.must_be_instance_of DragonsDream::TransferInfo
-  end
-
-  describe "guide" do
-    it "responds" do 
-      @transfer.must_respond_to("guide")
-    end
-
-    it "returns" do
-      puts @transfer.guide("江田（神奈川）", "大阪")
-    end
+  def test_guide
+    assert_respond_to @transfer, :guide
   end
 end
 
