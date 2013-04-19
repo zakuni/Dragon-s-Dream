@@ -9,6 +9,14 @@ class TestDragonsDream < MiniTest::Unit::TestCase
   end
 end
 
+class TestTransferInfo < MiniTest::Unit::TestCase
+  include DragonsDream
+
+  def setup
+    @transfer = TransferInfo.new
+  end
+end
+
 describe DragonsDream::TransferInfo do
   before do
     @transfer = DragonsDream::TransferInfo.new
