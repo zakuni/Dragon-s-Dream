@@ -12,7 +12,7 @@ class TestTransferInfo < MiniTest::Unit::TestCase
     @transfer = TransferInfo.new
   end
 
-  def test_init
+  def test_initialize
     assert_instance_of TransferInfo, TransferInfo.new
   end
 
@@ -23,16 +23,21 @@ end
 
 class TestRailwayInfo < MiniTest::Unit::TestCase
   include DragonsDream
+
+  def setup
+    @railway = RailwayInfo.new
+    @yamanote_line = "JR山手線"
+  end
+
+  def test_initialize
+    assert_instance_of RailwayInfo, RailwayInfo.new
+  end
 end
 
 describe DragonsDream::RailwayInfo do
   before do
     @railway = DragonsDream::RailwayInfo.new
     @yamanote_line = "JR山手線"
-  end
-
-  it "can be created" do
-    DragonsDream::RailwayInfo.new.must_be_instance_of DragonsDream::RailwayInfo
   end
 
   describe "stations_list" do
