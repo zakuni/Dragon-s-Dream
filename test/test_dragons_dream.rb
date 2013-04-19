@@ -3,13 +3,9 @@ require 'test_helper'
 
 class TestDragonsDream < MiniTest::Unit::TestCase
   include DragonsDream
-end
 
-describe DragonsDream do
-  describe "guide" do
-    it "shows the way" do
-      true
-    end
+  def test_guide
+    assert_equal true
   end
 end
 
