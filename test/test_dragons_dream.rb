@@ -21,6 +21,10 @@ class TestTransferInfo < MiniTest::Unit::TestCase
   end
 end
 
+class TestRailwayInfo < MiniTest::Unit::TestCase
+  include DragonsDream
+end
+
 describe DragonsDream::RailwayInfo do
   before do
     @railway = DragonsDream::RailwayInfo.new
