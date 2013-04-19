@@ -32,7 +32,8 @@ module DragonsDream
     private
     
     def get_stations(name)
-      reqUrl = "#{@baseUrl}?method=getStations&name=#{name}"
+      enc_name = URI.encode(name)
+      reqUrl = "#{@baseUrl}?method=getStations&name=#{enc_name}"
       request(reqUrl)["response"]
     rescue
       raise ArgumentError, "name of station must not be nil" if name.nil?

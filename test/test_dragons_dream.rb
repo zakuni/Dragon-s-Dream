@@ -56,7 +56,7 @@ describe DragonsDream::RailwayInfo do
 
     describe "with send" do
       it "returns Hash" do
-        @railway.send(:get_stations, nil).must_be_kind_of(Hash)
+        @railway.send(:get_stations, "渋谷").must_be_kind_of(Hash)
       end
       
       it "raise ArgumentError with Argument nil" do
