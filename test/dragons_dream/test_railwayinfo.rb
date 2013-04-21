@@ -42,6 +42,12 @@ class TestRailwayInfo < MiniTest::Unit::TestCase
   def test_get_stations_with_line
     refute_respond_to @railway, :get_stations_with_line
     assert_instance_of Hash, @railway.send(:get_stations_with_line, @shibuya, @yamanote_line)
+    assert_raises(ArgumentError) do
+      @railway.send(:get_stations_with_line, nil, @yamanote_line)
+    end
+    assert_raises(ArgumentError) do
+      @railway.send(:get_stations_with_line, @shibuya, nil)
+    end
   end
 end
 
