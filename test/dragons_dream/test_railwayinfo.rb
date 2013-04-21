@@ -30,28 +30,20 @@ class TestRailwayInfo < MiniTest::Unit::TestCase
       @railway.send(:get_stations, nil)
     end
   end
+
+  def test_get_line
+    refute_respond_to @railay, :get_line
+    assert_kind_of Hash, @railway.send(:get_line, @yamanote_line)
+    assert_raises(ArgumentError) do
+      @railway.send(:get_line, nil)
+    end
+  end
 end
 
 describe DragonsDream::RailwayInfo do
   before do
     @railway = DragonsDream::RailwayInfo.new
     @yamanote_line = "JR山手線"
-  end
-
-  describe "get_line" do
-    it "is private method" do
-      @railway.wont_respond_to("get_line")
-    end
-
-    describe "with send" do
-      it "raise ArgumentError with Argument nil" do
-        lambda{@railway.send(:get_line, nil)}.must_raise(ArgumentError)
-      end
-
-      it "returns Hash" do
-        @railway.send(:get_line, @yamanote_line).must_be_kind_of(Hash)
-      end
-    end
   end
 
   describe "get_stations_with_line" do
