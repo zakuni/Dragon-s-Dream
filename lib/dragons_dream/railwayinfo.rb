@@ -17,7 +17,7 @@ module DragonsDream
     def get_stations(name)
       enc_name = URI.encode(name)
       reqUrl = "#{@baseUrl}?method=getStations&name=#{enc_name}"
-      request(reqUrl)["response"]
+      request(reqUrl)
     rescue
       raise ArgumentError, "name of station must not be nil" if name.nil?
       raise
@@ -26,7 +26,8 @@ module DragonsDream
     def get_line(line)
       enc_line = URI.encode(line)
       reqUrl = "#{@baseUrl}?method=getStations&line=#{enc_line}"
-      request(reqUrl)["response"]
+      response = request(reqUrl)
+      request(reqUrl)
     rescue
       raise ArgumentError, "line must not be nil" if line.nil?
       raise
@@ -34,12 +35,12 @@ module DragonsDream
 
     def get_stations_with_line(name, line)
       reqUrl = "#{@baseUrl}?method=getStations&line=#{line}&name=#{name}"
-      request(reqUrl)["response"]
+      request(reqUrl)
     end
 
     def request(url)
       response = Net::HTTP.get_response(URI.parse(url))
-      JSON.parse(response.body)
+      JSON.parse(response.body)["response"]
     end
   end
 end
