@@ -7,6 +7,7 @@ class TestRailwayInfo < MiniTest::Unit::TestCase
   def setup
     @railway = RailwayInfo.new
     @yamanote_line = "JR山手線"
+    @shibuya = "渋谷"
   end
 
   def test_initialize
@@ -21,28 +22,20 @@ class TestRailwayInfo < MiniTest::Unit::TestCase
     assert_kind_of Array, @railway.stations_list(@yamanote_line)
     assert_equal 29, @railway.stations_list(@yamanote_line).length
   end
+
+  def test_get_stations
+    refute_respond_to @railway, :get_stations
+    assert_kind_of Hash, @railway.send(:get_stations, @shibuya)
+    assert_raises(ArgumentError) do
+      @railway.send(:get_stations, nil)
+    end
+  end
 end
 
 describe DragonsDream::RailwayInfo do
   before do
     @railway = DragonsDream::RailwayInfo.new
     @yamanote_line = "JR山手線"
-  end
-
-  describe "get_stations" do
-    it "is private method" do
-      @railway.wont_respond_to("get_stations")
-    end
-
-    describe "with send" do
-      it "returns Hash" do
-        @railway.send(:get_stations, "渋谷").must_be_kind_of(Hash)
-      end
-      
-      it "raise ArgumentError with Argument nil" do
-        lambda{@railway.send(:get_stations, nil)}.must_raise(ArgumentError)
-      end
-    end
   end
 
   describe "get_line" do
