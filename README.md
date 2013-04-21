@@ -19,6 +19,8 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
+require 'dragons_dream'
+
 dd = DragonsDream::RailwayInfo.new
 dd.get_stations_list("JR山手線")
 ```
