@@ -15,8 +15,4 @@ class TestTransferInfo < MiniTest::Unit::TestCase
   def test_initialize
     assert_instance_of TransferInfo, TransferInfo.new
   end
-
-  def test_guide
-    assert_respond_to @transfer, :guide
-  end
 end
