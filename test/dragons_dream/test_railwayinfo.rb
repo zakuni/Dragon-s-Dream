@@ -19,14 +19,15 @@ class TestRailwayInfo < MiniTest::Unit::TestCase
     assert_raises(ArgumentError) do
       @railway.stations_list(nil)
     end
-    assert_kind_of Array, @railway.stations_list(@yamanote_line)
-    assert_equal 29, @railway.stations_list(@yamanote_line).length
+    stations = @railway.stations_list(@yamanote_line)
+    assert_instance_of Array, stations
+    assert_equal 29, stations.length
     assert_equal "品川", stations[0]["name"]
   end
 
   def test_get_stations
     refute_respond_to @railway, :get_stations
-    assert_kind_of Hash, @railway.send(:get_stations, @shibuya)
+    assert_instance_of Hash, @railway.send(:get_stations, @shibuya)
     assert_raises(ArgumentError) do
       @railway.send(:get_stations, nil)
     end
