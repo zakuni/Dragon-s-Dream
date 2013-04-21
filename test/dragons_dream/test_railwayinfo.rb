@@ -38,23 +38,10 @@ class TestRailwayInfo < MiniTest::Unit::TestCase
       @railway.send(:get_line, nil)
     end
   end
-end
 
-describe DragonsDream::RailwayInfo do
-  before do
-    @railway = DragonsDream::RailwayInfo.new
-    @yamanote_line = "JR山手線"
-  end
-
-  describe "get_stations_with_line" do
-    it "is private method" do
-      @railway.wont_respond_to("get_stations_with_line")
-    end
-    describe "with send" do
-      it "returns Hash" do
-#        @railway.send(:get_stations_with_line, nil, nil).must_be_kind_of(Hash)
-      end
-    end
+  def test_get_stations_with_line
+    refute_respond_to @railway, :get_stations_with_line
+    assert_instance_of Hash, @railway.send(:get_stations_with_line, @shibuya, @yamanote_line)
   end
 end
 

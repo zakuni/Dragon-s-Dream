@@ -38,7 +38,7 @@ module DragonsDream
       reqUrl = "#{@baseUrl}?method=getStations&line=#{enc_line}&name=#{enc_name}"
       request(reqUrl)
     rescue
-      raise ArgumentError, "line must not be nil" if name.nil? || line.nil?
+      raise ArgumentError, "name and line must not be nil" if name.nil? || line.nil?
       raise
     end
 
