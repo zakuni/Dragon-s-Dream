@@ -5,6 +5,8 @@ module DragonsDream
       @baseUrl  = "http://express.heartrails.com/api/json"
     end
     
+    # @param line [String] name of Railway Route.
+    # @return [Array] the list of stations information with given line.
     def stations_list(line)
       get_line(line)["station"]
     rescue
