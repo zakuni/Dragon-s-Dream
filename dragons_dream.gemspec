@@ -19,8 +19,10 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency "nokogiri"
+  gem.add_development_dependency "rake"
   gem.add_development_dependency "guard-minitest"
   gem.add_development_dependency "rb-fsevent"
   gem.add_development_dependency "growl"
   gem.add_development_dependency "minitest-reporters"
+  gem.add_development_dependency "yard"
 end
