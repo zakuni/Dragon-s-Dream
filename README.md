@@ -18,7 +18,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+dd = DragonsDream::RailwayInfo.new
+dd.get_stations_list("JR山手線")
+```
 
 ## Contributing
 
