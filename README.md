@@ -22,7 +22,7 @@ Or install it yourself as:
 require 'dragons_dream'
 
 dd = DragonsDream::RailwayInfo.new
-dd.get_stations_list("JR山手線")
+dd.stations_list("JR山手線")
 ```
 
 ## Contributing
