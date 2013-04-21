@@ -21,6 +21,7 @@ class TestRailwayInfo < MiniTest::Unit::TestCase
     end
     assert_kind_of Array, @railway.stations_list(@yamanote_line)
     assert_equal 29, @railway.stations_list(@yamanote_line).length
+    assert_equal "品川", stations[0]["name"]
   end
 
   def test_get_stations
