@@ -2,6 +2,8 @@
 
 RailwayInfo via [HeartRails Express](http://express.heartrails.com/)
 
+[![Build Status](https://travis-ci.org/zakuni/dragons_dream.png)](https://travis-ci.org/zakuni/dragons_dream)
+
 ## Installation
 
 Add this line to your application's Gemfile:
