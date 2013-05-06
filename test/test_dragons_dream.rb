@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-require 'test_helper'
+require File.expand_path 'test_helper', File.dirname(__FILE__)
 
 class TestDragonsDream < MiniTest::Unit::TestCase
   include DragonsDream
