@@ -2,7 +2,7 @@
 
 RailwayInfo via [HeartRails Express](http://express.heartrails.com/)
 
-[![Build Status](https://travis-ci.org/zakuni/dragons_dream.png)](https://travis-ci.org/zakuni/dragons_dream)
+[![Build Status](https://travis-ci.org/zakuni/Dragon-s-Dream.png)](https://travis-ci.org/zakuni/Dragon-s-Dream)
 
 ## Installation
 
